@@ -25,4 +25,17 @@ struct SparseProjection{
     unsigned int connN; 
 };
 
+//! \brief class for definining a sparse connectivity
+//! projection which is partitioned into N blocks
+//! **THINK** could use uint8 or uint16 for sub row length
+template<unsigned int N>
+struct PartitionedSparseProjection
+{
+    unsigned int *subRowBeginIndices[N];
+    unsigned int *subRowLength[N];
+    unsigned int *postIndices;
+
+    unsigned int connN;
+};
+
 #endif
